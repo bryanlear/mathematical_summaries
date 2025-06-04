@@ -1,0 +1,65 @@
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{Mathematical Proofs}
+
+\section{Set Theory}
+\textit{\textbf{Set}: A collection of objects considered as a single object.}\\
+
+\begin{itemize}
+    \item[$\blacktriangleright$] \textbf{Open Interval $(\, )$}: $(a, b)$ represents all $\Re$ $x$ such that $a < x < b$.
+    \item[$\blacktriangleright$] \textbf{Closed Interval $[\, ]$}: $[a, b]$ represents all $\Re$ $x$ such that $a \leq x \leq b$.
+    \item[$\blacktriangleright$] \textbf{Half-Open/Half-Closed Intervals}: $[a, b)$ means $a \leq x < b$, and $(a, b]$ means $a < x \leq b$.
+\end{itemize}
+
+\textbf{Disjoint:} $A \cap B = \emptyset$\\
+
+\textbf{Difference:} $A-B$ or $A/B$ $= \{x: x\in A$ and $x \notin B \}$\\
+
+\exm{Set operations}{
+\quad Let $A = \{x \in \mathbb{R} : |x| \leq 3\}$, $B = \{x \in \mathbb{R} : |x| > 2\}$ and $C = \{x \in \mathbb{R} : |x - 1| \leq 4\}$.
+\begin{enumerate}
+    \item Express $A$, $B$ and $C$ using interval notation.
+    \item Determine $A \cap B$, $A - B$, $B \cap C$, $B \cup C$, $B - C$ and $C - B$.
+\end{enumerate}
+\textbf{Solution}
+\begin{enumerate}
+    \item $A = [-3, 3]$, $B = (-\infty, -2) \cup (2, \infty)$ and $C = [-3, 5]$ \textit{(For C, $-4\leq x-1 \leq 4$)}.
+    \item $A \cap B = [-3, -2) \cup (2, 3]$, $A - B = [-2, 2]$, $B \cap C = [-3, -2) \cup (2, 5]$, $B \cup C = (-\infty, \infty)$, $B - C = (-\infty, -3) \cup (5, \infty)$ and $C - B = [-2, 2]$.
+\end{enumerate}}
+
+\section*{Complement:} All elements that are \textit{not in} the given set but are \textit{within} a defined \textbf{universal set}.\\
+
+Consider universal set $U$. For a set $A$, its \textbf{complement} is: 
+$\overline{A} = U - A = \{x : x \in U \text{ and } x \notin A\}$.
+
+If $U = \mathbb{Z}$, then $\overline{\mathbb{N}} = \{0, -1, -2, \dots\}$; while if $U = \mathbb{R}$, then $\overline{\mathbb{Q}} = \mathbb{I}$.
+
+\subsection*{Key Properties of Complements}
+
+Let $U$ be the universal set and $A$ and $B$ be subsets of $U$.
+
+\begin{itemize}
+    \item \textbf{Union with Original Set:} A set and its complement, when united, form the universal set:
+    \[A \cup \overline{A} = U\]
+    \item \textbf{Intersection with Original Set:} A set and its complement are always disjoint (they have no elements in common):
+    \[A \cap \overline{A} = \emptyset\]
+    \item \textbf{Double Complement:} The complement of the complement of a set is the original set itself:
+    \[\overline{(\overline{A})} = A\]
+    \item \textbf{Complement of Universal Set:} The complement of the universal set is the empty set:
+    \[\overline{U} = \emptyset\]
+    \item \textbf{Complement of Empty Set:} The complement of the empty set is the universal set:
+    \[\overline{\emptyset} = U\]
+    \item \textbf{De Morgan's Laws:} These important laws relate complements to unions and intersections:
+    \begin{itemize}
+        \item The complement of a union is the intersection of the complements:
+        \[\overline{(A \cup B)} = \overline{A} \cap \overline{B}\]
+        \item The complement of an intersection is the union of the complements:
+        \[\overline{(A \cap B)} = \overline{A} \cup \overline{B}\]
+    \end{itemize}
+\end{itemize}
+%%%%%%%%%%%%%%#############################################
+
+\subsection{Indexed Collections of Sets}
+\end{document}
+

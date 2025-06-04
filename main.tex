@@ -1,0 +1,57 @@
+\documentclass[A4,11pt,twoside]{report}
+\usepackage{amd}
+
+% %--------------------------------------------------------------------------
+% %         General Setting
+% %--------------------------------------------------------------------------
+%Path of figures%Size of figures
+\setlength{\cftbeforechapskip}{3pt} %space between items in toc% Idk
+\input{theorems.tex} % Theorems styles and colors
+\usepackage[english]{babel} %Language
+
+\setlist[itemize]{itemsep=5pt} % Adjust the length as needed
+\setlist[enumerate]{itemsep=5pt} % Adjust the length as needed
+
+
+
+% \usepackage{lmodern} %  Latin Modern font
+% \usepackage{newtxtext,newtxmath}
+
+
+
+
+% %--------------------------------------------------------------------------
+% %         General Informations
+% %--------------------------------------------------------------------------
+\newcommand{\BigTitle}{
+    SUBJECT NOTES
+    }
+
+\newcommand{\LittleTitle}{
+    Compiled by Bryan L.A. - 2024/2025
+    }
+    
+\begin{document}
+
+% %--------------------------------------------------------------------------
+% %         First pages 
+% %--------------------------------------------------------------------------
+\newgeometry{top=8cm,bottom=.5in,left=2cm,right=2cm}
+\subfile{files/0.0.0.titlepage}
+\restoregeometry
+\subfile{files/0.zommaire}
+
+% %--------------------------------------------------------------------------
+% %         Core of the document 
+% %--------------------------------------------------------------------------
+
+\subfile{files/0.0.testchap}
+\subfile{files/0.1.testchap}
+
+% %--------------------------------------------------------------------------
+% %         Bibliographie 
+% %--------------------------------------------------------------------------
+\nocite{*} % to cite evey things, else cite each on using : \cite{ifrs17}. 
+\printbibliography %to print bibliographie
+
+\end{document}
