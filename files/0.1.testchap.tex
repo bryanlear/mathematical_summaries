@@ -61,5 +61,53 @@ Let $U$ be the universal set and $A$ and $B$ be subsets of $U$.
 %%%%%%%%%%%%%%#############################################
 
 \subsection{Indexed Collections of Sets}
+\defn{Union $A \cup B \cup C$}{
+\begin{center}
+    $A \cup B \cup C = \{x: x\in A_i$ or $ x \in B$, or $x \in C\}$
+\end{center}
+}
+
+\defn{Union of sets (set of sets)}{
+To consider the union of several sets: The union of $n \geq 2$ sets $A_1, A_2, \dots, A_n$ is denoted by $A_1 \cup A_2 \cup \dots \cup A_n$ or $\bigcup_{i=1}^{n} A_i$, 
+\[ \bigcup_{i=1}^{n} A_i = \{x : x \in A_i \text{ for some } i, 1 \leq i \leq n\}. \]
+
+Thus, for element $a$ to belong to $\bigcup_{i=1}^{n} A_i$, $a$ must belong to at least one of the sets $A_1, A_2, \dots, A_n$.
+}
+
+\exm{Union of sets}{
+\quad Let $B_1 = \{1, 2\}$, $B_2 = \{2, 3\}$, \dots, $B_{10} = \{10, 11\}$; that is, $B_i = \{i, i+1\}$ for $i = 1, 2, \dots, 10$. Determine each of the following:
+\begin{enumerate}
+    \item[(a)] $\bigcup_{i=1}^{5} B_i$.
+    \item[(b)] $\bigcup_{i=1}^{10} B_i$.
+    \item[(c)] $\bigcup_{i=3}^{7} B_i$.
+    \item[(d)] $\bigcup_{i=j}^{k} B_i$, where $1 \leq j \leq k \leq 10$.
+\end{enumerate}
+
+\textbf{Solution}
+\begin{enumerate}
+    \item[(a)] $\bigcup_{i=1}^{5} B_i = \{1, 2, \dots, 6\}$.
+    \item[(b)] $\bigcup_{i=1}^{10} B_i = \{1, 2, \dots, 11\}$.
+    \item[(c)] $\bigcup_{i=3}^{7} B_i = \{3, 4, \dots, 8\}$.
+    \item[(d)] $\bigcup_{i=j}^{k} B_i = \{j, j+1, \dots, k+1\}$. \hfill $\blackdiamond$
+\end{enumerate}
+}
+
+
+
+
+% \textit{Further explanation for $(d)$}: Find \textbf{intersection} of $B_i$ from $i=j$ to $i=k$. Thus goal is to look for elements present in $B_j,B_{j+1},…,B_k$.\\
+
+% \textbf{Consider:} \\
+
+% \textbf{Case 1:} $k=j+1$ $\rightarrow$ Find all uniquebetween 2 consecutive sets: $B_j, B_{j+1}$
+% \begin{center}
+%     $B_j = \{j,j+1\}$\\
+%     $B_{j+1} = \{j +1,j+2\}$\\
+%     Therefore, if $k=j+1$, $B_j \cap B_{j+1} = \{j+1\}$  
+% \end{center}
+
+
+
+
 \end{document}
 

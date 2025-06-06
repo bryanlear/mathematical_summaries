@@ -1,7 +1,7 @@
 \documentclass[../Main.tex]{subfiles}
 
 \begin{document}
-\chapter{Finite Games/Nash Equilibria}
+\chapter{Game Theory}
 \textbf{Strategic form/normal form/matrix games:} Games in which all participants act simultaneously and without knowledge of other players' actions.
 \begin{itemize}
     \item Set of players (agents)
@@ -10,7 +10,8 @@
     \item Information structure players can access
 \end{itemize}
 
-\section{Finite Games}
+\section{Finite Games/Nash Equilibria}
+\subsection{Finite Games}
 \defn{Strategic form of game/Finite game}{A strategic forms game is a triplet $\langle \mathcal{I}, (S_i)_{i \in \mathcal{I}}, (u_i)_{i \in \mathcal{I}} \rangle$ such that
     \begin{itemize}
         \item[$\blacktriangleright$] $\mathcal{I}$: finite number of players, where $N = \mathcal{I} = \{1, 2, \ldots, n\}$
@@ -83,7 +84,7 @@
     component $X_2 = \{D, E, F\}$
 \end{itemize}
 
-\section{Dominant Equilibrium: Optimality of Game}
+\subsection{Dominant Equilibrium: Optimality of Game}
 For i player, a dominant strategy is one that yields the highest payoff, \textit{regardless of other players' actions}. A \textbf{Dominant Strategy Equilibrium} occurs when \textit{every} player has a clear best choice irrespective of others' and there is this no incentive for any player to deviate. (e.g., Prisoner's Dilemma). 
 
 \textbf{Nash Equilibrium:} Set of strategies, for each player, such that \textit{no player can improve payoff by unilaterally changing only their own strategy} (assuming all players stick to chosen strategies). Note: a game can have multiple Nash equilibria and they don't always mean the best possible collective outcome for all players.
@@ -151,7 +152,7 @@ WHILE strategies_eliminated_this_round == true:
 Output: The final sets S_i_current for all players.
 \end{verbatim}
 
-\section{Nash Equilibrium: Optimality of Game}
+\subsection{Nash Equilibrium: Optimality of Game}
 \begin{itemize}
     \item[$\blacktriangleright$] N-player noncooperative game
     \item[$\blacktriangleright$] Rationality and optimality are key underlying assumptions
@@ -209,7 +210,7 @@ Each player wants to choose their strategy to maximize their own payoff, keeping
 
 \textit{'The dilemma is that individual rationality (each prisoner choosing their dominant strategy to minimize their own sentence) leads to a collectively suboptimal outcome where both are worse off than if they had managed to cooperate. Even if they had agreed beforehand to Stay Silent, the incentive to betray the other for a chance at freedom (or a reduced sentence if the other also betrays) is very strong. This highlights the conflict between individual incentives and mutual benefit, and the difficulty of achieving cooperation in the absence of trust and binding agreements.'}
 
-\section{Saddle-Point Equilibrium}
+\subsection{Saddle-Point Equilibrium}
 
 \defn{Saddle-Point Equilibrium}{NE for a \textbf{2-player zero-sum} game ($u = u_1 = -u_2$)
 
@@ -319,7 +320,7 @@ Since neither player has an incentive to unilaterally deviate from strategy prof
     \end{itemize}
 \end{itemize}
 
-\section{Mixed Strategies and Mixed Nash Equilibrium}
+\subsection{Mixed Strategies and Mixed Nash Equilibrium}
 \begin{itemize}
     \item[$\blacktriangleright$] Probability vector in strategy space
     \item[$\blacktriangleright$] Randomization of the strategy (action) space
@@ -327,7 +328,187 @@ Since neither player has an incentive to unilaterally deviate from strategy prof
 \end{itemize}
 
 
+\section*{Mixed Strategies and Expected Payoff}
+
+\begin{itemize}
+    \item Let $\Sigma_i$ be set of probabilities on $S_i$.
+    \item Let $\sigma_i \in \Sigma_i$ is probability on $S_i$. $\sigma_i$ (also called the simplex on $\Sigma_i$)
+    \item Note $\sigma = (\sigma_1, \sigma_2, \dots, \sigma_n)$, $\Sigma = \Sigma_1 \times \dots \times \Sigma_n$
+    \item Similarly $\sigma_{-i}$ and $\Sigma_{-i}$
+    \item With $\sigma_i \in \Sigma_i$, strategy set $S_i$ can be randomized. \textbf{Randomization is independent}.
+    \item Expected payoff is given by $u_i : \Sigma \rightarrow \mathbb{R}$ with
+    \[
+        u_i(\sigma) = u_i(\sigma_i, \sigma_{-i}) = E[u_i(s_i, s_{-i})] = \sum_{s \in S} \left( \prod_{j=1}^{n} \sigma_j(s_j) \right) u_i(s)
+    \]
+    (Note: $s=(s_1, \dots, s_n)$ is a pure strategy profile and $\sigma_j(s_j)$ is probability player $j$ plays pure strategy $s_j$.)
+\end{itemize}
+
+Let $|S_1| = p$ and $|S_2|=q$\\
+
+$\sigma_1 = (\sigma^{(1)}_1,...,\sigma^{(p)}_1$) with $\sum^p_{i=1} \sigma^{i}_1 = 1$ and $ \sigma^{i}_1 \in [0,1]$\\
+
+$\sigma_2 = (\sigma^{(1)}_2,...,\sigma^{(p)}_2$) with $\sum^p_{i=1} \sigma^{i}_2 = 1$ and $ \sigma^{i}_2 \in [0,1]$\\
+
+$\sigma_1$ and $\sigma_2$ are probability measures on $S_1$ and $S_2$. They are probability mass functions\\
+
+Always choosing pure strategy (same option) is predictable and can be \textit{exploited}. A \textbf{mixed strategy} is a way to be unpredictable. Player chooses a \textit{probability distribution} over their available actions.\\
+
+\exm{Mixed}{
+\begin{itemize}
+    \item[$\blacktriangleright$] If $S_1 = \{A,B\}$, then player $1$ selects $A$ with probability $\sigma^{(1)}_1$ and $B$ with probability $1-\sigma^{(1)}_1$
+    \item [$\blacktriangleright$] $\sigma_1 = (\sigma^{(1)}_1, 1-\sigma^{(1)}_1)$
+    \item [$\blacktriangleright$] If $S_2 = \{C,D\}$ then $\sigma_2 = (\sigma^{(1)}_2, 1-\sigma^{(1)}_2)$
+    \item [$\blacktriangleright$] \textbf{Expected/probabilistic payoff} for Player $1$ is:
+    \begin{align*}
+u_1(\sigma_1, \sigma_2) &= \sigma_1^{(1)}\sigma_2^{(1)}u_1(A, C) \\
+& \quad + (1-\sigma_1^{(1)})\sigma_2^{(1)}u_1(B, C) \\
+& \quad + \sigma_1^{(1)}(1-\sigma_2^{(1)})u_1(A, D) \\
+& \quad + (1-\sigma_1)(1-\sigma_2^{(1)})u_1(B, D)
+\end{align*}
+\end{itemize}
+
+$\sigma^{1}_1 \sigma^{2}_1u_1(A, C)$: Chance Player $1$ plays $A$ and Player $2$ plays $C$ times Player $1$'s payoff $u₁(A, C)$ if that happens and so on x$4$ for all the possible combinations
+
+}
+
+\defn{Mixed Nash equilibrium}{
+A mixed strategy profile $\sigma^* \in \Sigma$ is a mixed (strategy) Nash equilibrium if for any player $i \in N$,
+$$u_i(\sigma_i^*, \sigma_{-i}^*) \geq u_i(\sigma_i, \sigma_{-i}^*), \quad \forall \sigma_i \in \Sigma_i$$
+}
+\rmkb{
+\begin{itemize}
+    \item[$\blacktriangleright$] Previous definition NE is deterministic, \textbf{pure NE}.
+    \item[$\blacktriangleright$] Mixed NE $=$ Randomization
+    \item[$\blacktriangleright$] Every finite (matrix) game admits mixed strategy NE
+\end{itemize}
+}
 %%%%%%%%%%%%%%#############################################
+\thm{Mixed NE with best response}{
+A mixed strategy profile $\sigma^* \in \Sigma$ is a mixed NE \textit{if and only if} for any player $i \in N$,
+
+\begin{center}
+    $\sigma_i^* \in B_i(\sigma_{-i}^*) = \arg\max_{\sigma_i \in \Sigma_i} u_i(\sigma_i, \sigma_{-i}^*)
+= \{\sigma_i \in \Sigma_i \mid u_i(\sigma_i, \sigma_{-i}^*) \ge u_i(\sigma_i', \sigma_{-i}^*), \forall \sigma_i' \in \Sigma_i\}$
+\end{center}
+}
+\rmkb{
+\begin{itemize}
+    \item \textbf{$B_i$}: Best response correspondence of Player $i$
+    \item Proof is analogous to that of pure NE case 
+\end{itemize}
+Check player $i$'s strategy $\sigma^*_i$ against \textit{every other possible mixed strategy $\sigma'_i$ but there are infinitely ways to mix probabilities therefore not feasible}. The solution is to check that player $i$'s mixed strategy $\sigma^*_i$ gives a payoff that is \textbf{at least as good as any of the player's individual pure strategies $(s'_i)$}.
+Thus, a situation is NE when every player's chosen $s_i$ is a $B_i$ to $S_{-i}$ $= equilibrium =$ No reason to change strategy:
+}
+\propp{
+A mixed strategy profile $\sigma^* \in \Sigma$ is a mixed NE \textit{if and only if} for any player $i \in N$,
+\begin{center}
+    $
+    u_i(\sigma_i^*, \sigma_{-i}^*) \ge u_i(s_i', \sigma_{-i}^*), \quad \forall s_i' \in S_i
+    $
+\end{center}
+}{
+$u_i(\sigma_i', \sigma_{-i}^*) = \sum_{j=1}^{|S_i|} \sigma_i'^{(j)} u_i(s_j, \sigma_{-i}^*)$\\
+
+$\sum_{j=1}^{|S_i|} \sigma_i'^{(j)} u_i(s_j, \sigma_{-i}^*) \le \sum_{j=1}^{|S_i|} \sigma_i'^{(j)} u_i(\sigma_i^*, \sigma_{-i}^*)$\\
+
+$= u_i(\sigma_i^*, \sigma_{-i}^*) \sum_{j=1}^{|S_i|} \sigma_i'^{(j)} = u_i(\sigma_i^*, \sigma_{-i}^*)$
+}
+
+\textbf{Support of a mixed strategy}: Any pure strategy $s_i$ that is played with a probability $> 0$.
+\prop{
+A mixed strategy profile $\sigma^* \in \Sigma$ is a mixed strategy NE if and only if for any $i \in N$, every pure strategy in the support $\sigma^* \in \Sigma_i$ is the best response to $\sigma^*_{-i} \in \Sigma^*_{-i}$.\\
+
+For any $s_i \in \Sigma_i$ with:
+\begin{center}
+    $\mathbb{P}(s_i) = \sigma_i^*(s_i) > 0$\\
+
+    $s_i \in \arg\max_{s_j \in S_i} u_i(s_j, \sigma_{-i}^*) \iff s_i \in B_i(\sigma_{-i}^*)$
+\end{center}
+
+}
+\rmkb{
+\begin{itemize}
+    \item[$\blacktriangleright$]Each pure strategy $s_i$ is the best response to the mixed strategies of other players $\sigma^*_-i$
+    \item[$\blacktriangleright$] Important for characterization of mixed NE
+\end{itemize}
+
+The support is the set of all pure strategies that are actually played with a \textbf{non-zero probability} while the the proposition says that a mixed strategy is a NE if and only if \textbf{every pure strategy the player is actively using (i.e., in the support) is itself a best response.}
+}
+
+For every \textbf{pure} strategy in the support to be a best response, they must all yield the exact \textbf{same expected payoff}. If $1 / pure_strategies$ in mix gave a higher expected payoff than another, player would have incentive to shift all probability to that better strategy.
+
+\subsection*{Indifference Principle}
+The equation says that in a mixed NE, the expected payoff for playing \textbf{any pure strategy in the support} is the same.
+
+\propp{
+Under strategy of $(\sigma^*_i, \sigma^*_{-i}) \in \Sigma_i*\Sigma_{-i}$, if $s_i, s'_i \in S_i$ are supports of $\sigma^*_i \in \Sigma_i$, then:
+\begin{center}
+    $u_i(s_i, \sigma_{-i}^*) = u_i(s_i', \sigma_{-i}^*) = u_i(\sigma_i^*, \sigma_{-i}^*), \quad \forall i=1, \dots, n$
+    (since mixed's payoff is weighted average of identical payoffs)
+\end{center}
+}{
+if $u_i(s_i, \sigma_{-i}^*) > u_i(s_i', \sigma_{-i}^*)$ then reducing probability of playing $s'_i$ leads to increasing probability of playing $s_i$ which implies that $\sigma^*_i$ is not the best response to $\sigma^*_{-1}$.}
+
+\textit{Thus, in a Mixed NE player must be indifferent to all the pure strategies player is actively mixing between}.\\
+
+Let $A$ be a payoff matrix for Player $1$ and $B$ for Player $2$, where Player $1$ chooses row and Player $2$ chooses column for optimal decisions:
+
+\defn{Matrix representation of NE (2 players)}{
+A pair $(\sigma^*_1, \sigma^*_2) \in \Sigma_1$ x $\Sigma_2$ is said to constitute a NE in mixed strategies if:
+\begin{center}
+    \begin{itemize}
+        \item[$\blacktriangleright$]Player $1$ $\sigma_1^{*\top} A \sigma_2^* \ge \sigma_1^\top A \sigma_2^*, \quad \forall \sigma_1 \in \Sigma_1$
+        \item[$\blacktriangleright$]Player $2$ $\sigma_1^{*\top} B \sigma_2^* \ge \sigma_1^\top B \sigma_2, \quad \forall \sigma_2 \in \Sigma_2$
+    \end{itemize}
+\end{center}
+}
+
+Let $A = -B$. Then the definition of mixed NE is equivalent to the mixed saddle-point equilibrium:
+
+\defn{Mixed saddle-point equilibrium}{
+A pair $(\sigma_1^*, \sigma_2^*) \in \Sigma_1 \times \Sigma_2$ is said to constitute a saddle-point solution in mixed strategies if
+$$ \sigma_1^\top A \sigma_2^* \le (\sigma_1^*)^\top A \sigma_2^* \le (\sigma_1^*)^\top A \sigma_2, \quad \forall (\sigma_1, \sigma_2) \in \Sigma_1 \times \Sigma_2 $$
+
+\begin{itemize}
+    \item[$\blacktriangleright$] Note
+    $$ (\sigma_1^*)^\top A \sigma_2^* = \max_{\sigma_1 \in \Sigma_1} \min_{\sigma_2 \in \Sigma_2} \sigma_1^\top A \sigma_2 = \min_{\sigma_2 \in \Sigma_2} \max_{\sigma_1 \in \Sigma_1} \sigma_1^\top A \sigma_2 $$
+    \item[$\blacktriangleright$] This is the value of the zero-sum game
+    \item[$\blacktriangleright$] For zero-sum games, a NE $=$ Saddle-Point
+\end{itemize}
+}
+
+\exm{Matching Penny Game}{
+\begin{center}
+\begin{tabular}{cc|c|c|}
+  & \multicolumn{1}{c}{} & \multicolumn{2}{c}{Player 2} \\
+  & \multicolumn{1}{c}{} & \multicolumn{1}{c}{Head}  & \multicolumn{1}{c}{Tail} \\\cline{3-4}
+  Player 1 & Head & $(1, -1)$ & $(-1, 1)$ \\\cline{3-4}
+  & Tail & $(-1, 1)$ & $(1, -1)$ \\\cline{3-4}
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+    \item[$\blacktriangleright$] There does not exist pure NE (or saddle-point equilibrium). 
+    \begin{itemize}
+        \item[$\blacktriangleright$] If they play (Head, Head), Player $2$ gets $-1$ and would prefer to switch to Tail to get $+1$
+        \item[$\blacktriangleright$] If they play (Head, Tail), Player $1$ gets $-1$ and would prefer to switch to Tail to get $+1$
+        \item[$\blacktriangleright$] so on...
+    \end{itemize}
+    In each case player has incentive to switch $=$ no NE, thus a mixed strategy must be found:
+    \item[$\blacktriangleright$] Compute mixed NE (or saddle-point equilibrium)
+    \item[$\blacktriangleright$] Apply previous proposition $1.14$
+\end{itemize}
+
+\textbf{Recall} Proposition $1.14$
+\thm{ Mixed Nash equilibrium with best response | Practical Application}{
+\textit{When a player is indifferent, they are willing to mix their strategies.}
+A mixed strategy profile $\sigma^* \in \Sigma$ is a mixed (strategy) NE if and only if for any player $i \in N$,
+$$ \sigma_i^* \in B_i(\sigma_{-i}^*) = \arg\max_{\sigma_i \in \Sigma_i} u_i(\sigma_i, \sigma_{-i}^*) $$
+$$ = \{\sigma_i \in \Sigma_i \mid u_i(\sigma_i, \sigma_{-i}^*) \ge u_i(\sigma_i', \sigma_{-i}^*), \forall \sigma_i' \in \Sigma_i\} $$
+}
+}
+
+
 
 \end{document}
 
