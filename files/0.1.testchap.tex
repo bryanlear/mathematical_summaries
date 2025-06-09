@@ -92,9 +92,76 @@ Thus, for element $a$ to belong to $\bigcup_{i=1}^{n} A_i$, $a$ must belong to a
 \end{enumerate}
 }
 
+\subsection{Partitions of Sets}
 
+\textbf{Recall} $2$ sets are disjoint if their intersection is the empty set. A collection $S$ of subsets of a set $A$ is \textbf{pairwise disjoint} if every $2$ distinct subsets that belong to $S$ are disjoint.
+($element_1 \cap element_2 \cap element_n = \emptyset$).
 
+\textbf{Partition of $A$:} Collection $S$ of nonempty subsets of $A$ such that $\forall x_i \in A$ belongs exactly $1$ subset in $S$.
 
+\begin{enumerate}
+    \item $X \neq \emptyset$ $\forall set X \in S$ 
+    \item for every $2$ sets $X,Y \in S$, either $X=Y$ or $X \cap Y = \emptyset$
+    \item $\bigcup_{X \in S}X=A$
+\end{enumerate}
+
+\exm{Partition}{
+Consider collection of subsets of set $A = \{1,2,3,4,5,6\}$:
+\begin{align*}
+S_1 &= \{\{1, 3, 6\}, \{2, 4\}, \{5\}\}; \\
+S_2 &= \{\{1, 2, 3\}, \{4\}, \emptyset, \{5, 6\}\}; \\
+S_3 &= \{\{1, 2\}, \{3, 4, 5\}, \{5, 6\}\}; \\
+S_4 &= \{\{1, 4\}, \{3, 5\}, \{2\}\}.
+\end{align*}
+\textit{Determine which of these sets are partitions of $A$.}\\
+
+\begin{solution}
+The set $S_1$ is a partition of $A$. The set $S_2$ is not a partition of $A$ since $\emptyset$ is one of the elements of $S_2$. Set $S_3$ is not a partition of $A$ since the element 5 belongs to two distinct subsets in $S_3$ ($\{3, 4, 5\}$, $\{5, 6\}$). $S_4$ is not a partition of $A$ because element 6 belongs to no subset in $S_4$. \rule{0.5em}{0.5em}
+\end{solution}
+
+A partition of a nonempty set $A$ is a division of $A$ into nonempty subsets.\\
+
+\textbf{Partition $S_1$ of set $A$:}
+
+\begin{center}
+    \includegraphics[scale=0.6]{files/partition.png}
+\end{center}
+
+The set $\mathbb{Z}$ of integers can be partitioned into the set of even integers and the set of odd integers. The set $\mathbb{R}$ of real numbers can be partitioned into the set $\mathbb{R}^+$ of positive real numbers, the set of negative real numbers and the set $\{0\}$ consisting of the number $0$. $\mathbb{R}$ can also be partitioned into the set $\mathbb{Q}$ of rational numbers and the set $\mathbb{I}$ of irrational numbers.
+}
+
+\subsection{Cartesian Products of Sets}
+
+The \textbf{Cartesian product} $A *B$ of $2$ $sets$ $A$ and $B$ is the set consisting of all \textbf{ordered pairs} whose first coordinate belongs to $A$ and whose second belongs to $B$:\\
+
+$A*B = \{(a,b): a \in A$ and $b \in B\}$
+
+\exm{Cartesian}{
+If $A = \{x, y\}$ and $B = \{1, 2, 3\}$, then
+\begin{align*}
+A \times B &= \{(x, 1), (x, 2), (x, 3), (y, 1), (y, 2), (y, 3)\}, \\
+\intertext{while}
+B \times A &= \{(1, x), (1, y), (2, x), (2, y), (3, x), (3, y)\}.
+\end{align*}
+Since, for example, $(x, 1) \in A \times B$ and $(x, 1) \notin B \times A$, these two sets do not contain the same elements; so $A \times B \ne B \times A$. Also,
+\begin{align*}
+A \times A &= \{(x, x), (x, y), (y, x), (y, y)\} \\
+\intertext{and}
+B \times B &= \{(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3)\}. \quad \blacksquare
+\end{align*}
+
+Note if $A = \emptyset$ or $B = \emptyset$, then $A \times B = \emptyset$.
+The Cartesian product $\mathbb{R} \times \mathbb{R}$ is the set of all points in the Euclidean plane. \\
+
+Consider: The graph of the straight line $y = 2x + 3$ is the set
+\[
+\{(x,y) \in \mathbb{R} \times \mathbb{R} : y = 2x + 3\}.
+\]
+For the sets $A = \{x, y\}$ and $B = \{1, 2, 3\}$, $|A|=2$ and $|B|=3$; while $|A \times B| = 6$. Indeed, for all finite sets $A$ and $B$,
+\[
+|A \times B| = |A| \cdot |B|.
+\]
+}
 % \textit{Further explanation for $(d)$}: Find \textbf{intersection} of $B_i$ from $i=j$ to $i=k$. Thus goal is to look for elements present in $B_j,B_{j+1},…,B_k$.\\
 
 % \textbf{Consider:} \\
