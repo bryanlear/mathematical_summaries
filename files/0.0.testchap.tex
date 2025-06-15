@@ -839,6 +839,40 @@ Term \textbf{correspondence} or \textbf{set-valued function} instead of "functio
 
 \section{Correlated Equilibria}
 \subsection{Correlated Equilibrium}
+$\blacktriangleright$ Introduction of \textbf{Correlating Device}: It sends private signals to each player and signals from different players can be correlated. e.g., Traffic light is correlating device: if it signals \textcolor{green}{Green} to north-south traffic, it simultaneously signals \textcolor{red}{Red} to east-west traffic. 
+
+$\blacktriangleright$ \textit{Solution concept} that generalizes NE. Description of stable outcome in a game where players coordinate their actions based on shared, external, and random correlating signal.
+
+Signal recommends a pure strategy to each player and equilibrium holds if no player has incentive to unilaterally deviate from recommended strategy.\\
+
+\textbf{Incentive Compatibility (Mechanism):} if $\forall i \in N$ can achieve own best outcome by reporting their $true$ preferences. 
+
+\defn{Correlated Equilibrium}{
+Consider a finite n-player game $\langle \mathcal{N}, (S_i)_{i \in \mathcal{I}}, (u_i)_{i \in \mathcal{I}} \rangle$ 
+
+\begin{itemize}
+    \item[$\blacktriangleright$] $N=\{1,...,n\}$
+    \item[$\blacktriangleright$] Set $S_i$ of pure strategies for player $i$. $s = (s_1,...,s_n)$
+    \item[$\blacktriangleright$] Set $S=S_1*...*S_n$ of pure strategy profiles
+    \item[$\blacktriangleright$] $u_i : S \rightarrow \mathbb{R}$
+\end{itemize}
+
+A \textbf{Correlated Equilibrium} is probability distribution $p$ over set of all pure strategy profiles $S$.
+
+\begin{center}
+    $p:S \rightarrow [0,1]$ such that $\sum_{s\in S}P(s) = 1$
+\end{center}
+
+where $p(s)$ is probability recommended by correlating device. $p$ must satisfy \textit{incentive compatibility} constraint  $\forall i \in N$ and $\forall s_i \in S_i$.
+
+\begin{equation}
+\sum_{s_{-i} \in S_{-i}} p(s_i, s_{-i}) u_i(s_i, s_{-i}) \geq \sum_{s_{-i} \in S_{-i}} p(s_i', s_{-i}) u_i(s_i', s_{-i}) \quad \forall i \in N, \forall s_i, s_i' \in S_i
+\end{equation}
+
+
+
+
+}
 
 
 \end{document}

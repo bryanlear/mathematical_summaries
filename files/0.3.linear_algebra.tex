@@ -1,0 +1,81 @@
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{Linear Algebra}
+
+\section{Linear Algebra in Probability \& Statistics}
+
+\subsection{Recap}
+
+\[
+V = \begin{bmatrix} \sigma_1^2 & 0 \\ 0 & \sigma_2^2 \end{bmatrix} = \text{diagonal covariance matrix}
+\]
+where, $\sigma^2_1$ and $\sigma_2^2$ are variances of variables $\rightarrow$n spread from their mean
+
+\[
+\sigma_{12} = \sum_i \sum_j (p_i)(p_j)(x_i - m_1)(y_j - m_2) = \left[ \sum_i (p_i)(x_i - m_1) \right] \left[ \sum_j (p_j)(y_j - m_2) \right] = [0][0]
+\]
+
+and $\sigma_{12}$ $(=\sigma_{21})$ is \textbf{covariance} between $2$ variables - how both change together. Thus, $\sigma_{21} = 0 = \text{uncorrelated}$
+
+\[
+V = \sum \sum V_{ij} \quad V = \sum_{\text{all } i,j} p_{ij} 
+\begin{bmatrix} (x_i - m_1)^2 & (x_i - m_1 (y_j - m_2) \\ (x_i - m_1)(y_j - m_2) & (y_j - m_2)^2 \end{bmatrix}
+\]
+
+$\blacktriangleright$ A real symmetric matrix $A$ is positive \textbf{semidefinite} if for any non-zero column vector $z$:
+
+$z^T Az \geq 0$ thus $A $ \textit{all eigenvalues are non-negative}.
+
+\textit{This ensures that transformation doesn't reflect or invert space in a way that produces negative scaling}
+
+If inequality strict ($z^TAz>0$) $\forall z\neq 0$ matrix is \textbf{positive definite}. 
+
+\hrulefill
+
+\[
+V = \iiint p(x, y, z) U U^T dx \, dy \, dz \quad \text{with} \quad U = \begin{bmatrix} x - \bar{x} \\ y - \bar{y} \\ z - \bar{z} \end{bmatrix}
+\]
+
+$p(x, y, z) = p_1(x) p_2(y) p_3(z)$
+
+Perfect linear dependency: $p(x, y, z) = 0 \quad \text{except when} \quad cx + dy + ez = 0$ Cvarian matrix is singular (det $=$ $0$) and $\neg$ diagonal
+
+\[
+UU^T = 
+\begin{bmatrix} (x-\bar{x})^2 & (x-\bar{x})(y-\bar{y}) & (x-\bar{x})(z-\bar{z}) \\ (y-\bar{y})(x-\bar{x}) & (y-\bar{y})^2 & (y-\bar{y})(z-\bar{z}) \\ (z-\bar{z})(x-\bar{x}) & (z-\bar{z})(y-\bar{y}) & (z-\bar{z})^2 \end{bmatrix}
+\]
+
+\[
+\rho_{xy} = \frac{\sigma_{xy}}{\sigma_x \sigma_y} = \text{covariance of } \frac{x}{\sigma_x} \text{ and } \frac{y}{\sigma_y} 
+\]
+
+\begin{center}
+    $-1 \le \rho_{xy} \le 1$    
+\end{center}
+
+
+\[
+R = \begin{bmatrix} 1 & \rho_{xy} \\ \rho_{xy} & 1 \end{bmatrix} 
+\]
+
+where $\rho_{xy}$ \textbf{Pearson correlation coefficient}: measure of strength and direction of linear association between $2$ random variables. Value is always bounded $|1|$.
+
+Standardization reframes it as measure of how $2$ variables move together independent of their scales.
+
+\[
+R = \begin{bmatrix} 1 & -1 \\ -1 & 1 \end{bmatrix} \quad \text{when } y = -x
+\] $\rightarrow$ perfect but inverse linear dependency\\
+
+Thus, \textit{Covariance} (unbounded covariances and variances $[0, \infty)$) is raw directional relationship between variables whereas \textit{Correlation} (bounded) is standardized scale-independent measure of such linear relationship.
+
+\subsection{Multivariate Gaussian and Weighted Least Squares}
+
+Generalization of normal distribution to multiple dimensions:
+\[
+p(\mathbf{x}) = \frac{1}{(\sqrt{2\pi})^M \sqrt{\det V}} e^{-(\mathbf{x}-\mathbf{m})^T V^{-1} (\mathbf{x}-\mathbf{m})/2}
+\]
+For vector $X$ containing $M$ variables, $X=[x_1,x_2,...,x_M]^T$
+
+$\blacktriangleright$Shape/orientation of ellipsoidal distribution is determined by covariance matrix $V$
+\end{document}
