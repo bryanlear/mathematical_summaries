@@ -162,19 +162,100 @@ For the sets $A = \{x, y\}$ and $B = \{1, 2, 3\}$, $|A|=2$ and $|B|=3$; while $|
 |A \times B| = |A| \cdot |B|.
 \]
 }
-% \textit{Further explanation for $(d)$}: Find \textbf{intersection} of $B_i$ from $i=j$ to $i=k$. Thus goal is to look for elements present in $B_j,B_{j+1},…,B_k$.\\
 
-% \textbf{Consider:} \\
+\section{Logic}
 
-% \textbf{Case 1:} $k=j+1$ $\rightarrow$ Find all uniquebetween 2 consecutive sets: $B_j, B_{j+1}$
-% \begin{center}
-%     $B_j = \{j,j+1\}$\\
-%     $B_{j+1} = \{j +1,j+2\}$\\
-%     Therefore, if $k=j+1$, $B_j \cap B_{j+1} = \{j+1\}$  
-% \end{center}
+'Are there connections between $2$ given mathematical concepts? If so, what are they?', 'Under what conditions does an object possess a particularly property?'...
 
 
+\subsection{Stements}
+$P,Q,R$ used to denote statements:
 
+$\blacktriangleright$ $P_1:$ The integer $3$ is odd and $P_2$: The integer 57 is prime are statements where $P_1$ has truth value $T$ and $P_2$ has truth value $F$
 
+Imperative (commands) sentences, interrogative or exclamatory are $NOT$ statements since they're not declarative.
+
+\vspace{0.2cm}
+
+\textbf{Open Sentence:} Declarative sentence that contains one or more variables, each representing a value in some prescribed set, the \textbf{domain} of the variable, and which becomes a statement when values from their respective domains are substituted for these variables.
+
+\exm{Open Sentence}
+{
+\[
+P(x,y): |x+1|+|y|=1
+\]
+Suppose domain of $x$ is $S=\{-2,-1,0\}$ and domain of $y$ is $T=\{-1,0,1\}$
+
+Then, 
+
+\[
+P(-1,1): |-1+1|+|1|=1
+\]
+
+is $TRUE$, while
+
+\[
+P(1,-1): |1+1|+|-1|=1
+\]
+
+is $FALSE$
+
+$P(x,y)$ is a $true$ statement when
+\[
+(x,y)\in \{(-2,9),(-1,-1),(-1,-1),(0,0)\}
+\]
+
+while it is a $false$ statement for all other elements $(x,y) \in S *T$
+}
+
+The possible values of a statement are usually listed in a \textbf{truth table}. There are $2$ possible truth values for $P$ and $Q$, thus there are $4$ possible combinations of truth values for $P$ and $Q$
+
+\begin{center}
+    \includegraphics[width = 8cm]{truth_table.png}    
+\end{center}
+
+$\blacktriangleright$ A truth table involving $n$ statements $P_1,P_2,...,P_n$ contains $2^n$ possible combinations of truth values for statements and a truth table would have $n$ columns and $2^n$ rows.
+
+\subsection{Negations}
+
+\exm{negation}{
+For the statement
+\begin{center}
+$P_1$ : The integer 3 is odd.
+\end{center}
+described above, we have
+\begin{center}
+$\sim P_1$ : The integer 3 is not odd.
+\end{center}
+or better yet to write
+\begin{center}
+$\sim P_1$ : The integer 3 is even.
+\end{center}
+Similarly, the negation of the statement
+\begin{center}
+$P_2$ : The integer 57 is prime.
+\end{center}
+considered above is
+\begin{center}
+$\sim P_2$ : The integer 57 is not prime.
+\end{center}
+Note that $\sim P_1$ is false, while $\sim P_2$ is true. $\blacklozenge$
+
+Indeed, the negation of a true statement is always false and the negation of a false statement is always true; that is, the truth value of $\sim P$ is opposite to that of $P$. Truth table for $\sim P$ (in terms of the possible truth values of $P$):
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+$P$ & $\sim P$ \\
+\hline
+T & F \\
+\hline
+F & T \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+\subsection{Disjunctions and Conjunctions}
 \end{document}
 
