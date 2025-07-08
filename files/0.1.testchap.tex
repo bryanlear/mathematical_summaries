@@ -257,5 +257,79 @@ F & T \\
 }
 
 \subsection{Disjunctions and Conjunctions}
+
+\begin{center}
+    \includegraphics[width=4cm]{files/disjunction.png}
+    \includegraphics[width=4cm]{files/conjuction.png}
+\end{center}
+
+\subsection{Implications/Conditional}
+
+A statement formed from $2$ given statements. For statements $P$ and $Q$, the \textbf{implication} is the statement:
+
+\textbf{If} $P$, \textbf{then} $Q$ or \textit{implies} $\implies$
+
+\begin{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{P} & \textbf{Q} & \textbf{P $\Rightarrow$ Q} \\
+\hline
+T & T & T \\
+\hline
+T & F & F \\
+\hline
+F & T & T \\
+\hline
+F & F & T \\
+\hline
+\end{tabular}
+\end{center}
+\end{center}
+
+$\blacktriangleright $\textbf{A true premise cannot lead to a false statement in a valid deductive argument}
+
+The validity of a material implication is determined by its \textbf{truth table}. Let $P$ be the premise and $Q$ be the conclusion. The statement $P \Rightarrow Q$ is considered false only \textit{when a true premise leads to a false conclusion}. In all other cases, the implication is true.
+
+\exm{Material Implication}{
+
+Define the statements:
+
+\begin{itemize}
+    \item \textbf{P}: You earn an A on the final exam
+    \item \textbf{Q}: You receive an A for your final grade
+\end{itemize}
+
+The instructor's promise is the implication: "If you earn an A on the final exam, then you will receive an A for your final grade," or $P \Rightarrow Q$.
+
+\begin{enumerate}
+    \item \textbf{Case 1: P is True, Q is Truth} \\
+    You get an A on the exam, and you get an A in the course. The instructor kept their promise. The implication $P \Rightarrow Q$ is \textbf{true}.
+
+    \item \textbf{Case 2: P is True, Q is False.} \\
+    You get an A on the exam, but you do not get an A in the course. The instructor broke their promise. This is the only scenario where the promise was not kept. The implication $P \Rightarrow Q$ is \textbf{false}.
+
+    \item \textbf{Case 3: P is False, Q is True.} \\
+    You do not get an A on the exam, but you still get an A in the course. The instructor did not break their promise. The promise was only about what would happen \textit{if} you got an A on the final. It didn't say what would happen if you didn't. Therefore, the implication $P \Rightarrow Q$ is \textbf{true}. This is often called the \textbf{Law of Implication} or the \textbf{Principle of Vacuous Truth}. The promise was not tested, so it cannot have been broken.
+
+    \item \textbf{Case 4: P is False, Q is False.} \\
+    You do not get an A on the exam, and you do not get an A in the course. Instructor's promise was not broken because the condition (getting an A on the exam) was not met. The implication $P \Rightarrow Q$ is \textbf{true}.
+\end{enumerate}
+}
+
+\section*{Phrasing and Terminology in Proofs}
+
+The material implication $P \Rightarrow Q$ is the backbone of most mathematical theorems
+
+\begin{itemize}
+    \item \textbf{If P, then Q.} This is the most direct phrasing.
+    \item \textbf{P implies Q.} This is synonymous with "If P, then Q."
+    \item \textbf{P only if Q.} This means that $P$ can only be true when $Q$ is also true. If $Q$ were false, $P$ could not be true. This captures the essence of the second row of the truth table (T, F, F).
+    \item \textbf{P is sufficient for Q.} The truth of $P$ is enough (sufficient) to guarantee the truth of $Q$. Knowing $P$ is true means you know $Q$ must also be true. This is the direct meaning of a proof: showing the premises are sufficient for the conclusion.
+    \item \textbf{Q is necessary for P.} The truth of $Q$ is required (is a necessity) for $P$ to be true. If $Q$ is false, then $P$ must also be false. This is also known as the \textbf{contrapositive}. The statement $P \Rightarrow Q$ is logically equivalent to its contrapositive, $\neg Q \Rightarrow \neg P$ (If not Q, then not P).
+\end{itemize}
+
+
 \end{document}
 
