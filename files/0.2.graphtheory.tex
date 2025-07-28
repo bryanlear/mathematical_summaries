@@ -144,5 +144,64 @@ Prove that among eight integers, there are always two whose difference is divisi
 
 }
 
+\section{Mathematical Induction}
+
+\begin{center}
+    \textit{“It is beyond a doubt that all our knowledge begins with experience”}
+\end{center}
+    \textbf{ - Imannuel Kant}
+
+
+\begin{enumerate}
+    \item \textbf{Initial Step:} Prove that x statement is $true$ for smallest value of $m$, where $m=$ all natural numbers, for which it is defined. ($0$ or $1$)
+    \item \textbf{Induction Step:} Prove that from the fact that x statement is $true$ for $n$, it follows that x statements is also $true$ for $n+1$
+\end{enumerate}
+
+
+
+\exm{For all positive integers $m$}{
+$$
+P(m): 1^2 + 2^2 + \dots + m^2 = \frac{m(m+1)(2m+1)}{6} \quad
+$$
+
+\begin{enumerate}
+    \item \textbf{Initial Step.} Prove that statement $P(m)$ is $true$ for the very first integer (start domino chain). If $m=1$, then the left-hand side is $1^2 = 1$, and so is the right-hand side, $ \frac{1(1+1)(2(1)+1)}{6} = \frac{1 \cdot 2 \cdot 3}{6} = 1 $. Thus, statement is $true$ and first domino has fallen
+
+    \item \textbf{Induction Step.}
+    \begin{itemize}
+        \item Induction Hypothesis 
+        $$
+        1^2 + 2^2 + \dots + n^2 = \frac{(n)(n+1)(2n+1)}{6}
+        $$
+        (assume arbitrary domino $n$ has fallen)
+        \item Proof for $n+1$. Using hypothesis, show statement is $true$ for next integer $n+1$ thus show $P(n+1)$ is $true$
+    \end{itemize}
+   
+    $$
+    1^2 + 2^2 + \dots + n^2 + (n+1)^2 = \frac{(n+1)(n+2)(2n+3)}{6} 
+    $$
+    
+  Simplify right-hand side:
+
+    $$
+    \frac{(n+1)(n+2)(2n+3)}{6} \quad \textbf{(Target expression)}
+    $$
+
+    \item \textbf{Derivation:}
+    \begin{align*}
+    1^2 + 2^2 + \dots + n^2 + (n+1)^2 &= \left( \frac{n(n+1)(2n+1)}{6} \right) + (n+1)^2 \\
+    &= \frac{n(n+1)(2n+1) + 6(n+1)^2}{6} \\
+    &= \frac{(n+1)[n(2n+1) + 6(n+1)]}{6} \\
+    &= \frac{(n+1)[2n^2 + n + 6n + 6]}{6} \\
+    &= \frac{(n+1)[2n^2 + 7n + 6]}{6} \\
+    &= \frac{(n+1)(n+2)(2n+3)}{6}
+    \end{align*}
+
+Final expression matches target identified above. If the formula holds for $n$ it must then hold for $n+1$. This proves that if any domino falls, the next one will also fall.
+
+\end{enumerate}
+Therefore, the statement holds for all positive integers $m$.
+}
+
 \end{document}
 
